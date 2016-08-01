@@ -12,7 +12,17 @@ Here are some helpful links:
 
 function repeatStringNumTimes(str, num) {
   // repeat after me
-  return str;
+  if (num < 0) {
+    return "";
+  }
+
+  try {
+    return str.repeat(num);
+  } catch (e) {
+    console.log('num must be non-negative, less than infinity, and not overflow the maximum string size.');
+  } finally {
+
+  }
 }
 
 repeatStringNumTimes("abc", 3);
