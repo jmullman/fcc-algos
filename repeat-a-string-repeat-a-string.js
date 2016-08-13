@@ -12,7 +12,7 @@ Here are some helpful links:
 
 function repeatStringNumTimes(str, num) {
   // repeat after me
-  if (num < 0) {
+  if (num <= 0) {
     return "";
   }
 
@@ -25,4 +25,4 @@ function repeatStringNumTimes(str, num) {
   }
 }
 
-repeatStringNumTimes("abc", 3);
+console.log(repeatStringNumTimes("abc", 3));
