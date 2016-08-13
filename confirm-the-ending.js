@@ -13,7 +13,7 @@ function confirmEnding(str, target) {
   // -- Falcor
 
   var targetLength = target.length; // Length param for substr later.
-  var booleanValue = new Boolean(); // Value returned by confirmEnding().
+  var booleanValue = false; // Value returned by confirmEnding().
   var lastString = str.slice(-(targetLength + 1));
 
   booleanValue = lastString.includes(target);
