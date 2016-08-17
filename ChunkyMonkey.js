@@ -13,8 +13,12 @@ Here are some helpful links:
 function chunkArrayInGroups(arr, size) {
   // Break it up.
   twoDiArr = [];
-  for (var i = 0; i < size; i++) {
-    // twoDiArr.push(arr.slice(0,size));
+  console.log(arr.length / size);
+  console.log(arr.length / size | 0);
+  console.log(loopLength = ((arr.length / size) | 0) + 1);
+  for (var i = 0; i < loopLength; i++) {
+  //  twoDiArr.push(arr.splice(0,size));
+
     if (arr.length <= 0) {
       console.log("This is inside the if statement\n");
       return twoDiArr;
@@ -22,8 +26,9 @@ function chunkArrayInGroups(arr, size) {
       console.log(arr + ' before slice and splice\n');
       twoDiArr.push(arr.slice(0,size));
       arr.splice(0,size);
+      }
     }
-  }
+
   return twoDiArr;
 }
 
