@@ -16,16 +16,17 @@ Here are some helpful links:
  */
 
  function mutation(arr) {
+  var strPre = arr[0].toLowerCase();
+  var strAnt = arr[1].toLowerCase();
+  var arrIndex = [];
 
-  var setArr0 = new Set();
-  var setArr1 = new Set();
-
-  setArr0.add(arr[0].toLowerCase());
-  setArr1.add(arr[1].toLowerCase());
-  console.log(setArr0);
-  console.log(arr[1].toLowerCase());
-  return setArr0.has(setArr1);
-
+  for (var i = 0; i < strAnt.length; i++) {
+    arrIndex.push(strPre.indexOf(strAnt.charAt(i)));
+    if (arrIndex.includes(-1)) {
+      return false;
+    }
+  }
+  return true;
    //return arr;
  }
 
