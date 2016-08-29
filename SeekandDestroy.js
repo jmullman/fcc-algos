@@ -9,24 +9,32 @@ Here are some helpful links:
 
     Array.prototype.filter()
     */
-
+"use strict";
 function destroyer(arr) {
   // Remove all the values
   var arrArgZero = arguments[0];
-  var arrAll = Array.prototype.slice.call(arguments);
+  var arrAll = [...arguments];
   var arrArgs = arrAll.slice(1);
-  console.log(arrArgs);
-  var retVal;
-  retVal = arrArgZero.filter(function(arrArgs) {
-    console.log(arrArgs);
-    for (var i = 0; i < arrArgs.length; i++) {
-      console.log(arrArgZero.includes(arrArgs[i]) + "\n" + arrArgs + "\n");
-    }
-    // console.log(arrArgZero.includes(arrArgs));
-    // return !!arrArgZero.includes(arrArgs);
-  });
-  console.log(retVal);
-  return retVal;
+  console.log(arrArgZero + "    " + arrAll + "    " + Array.isArray(arrArgs) +" line 18\n");
+
+  console.log(arrArgs + " line 20\n");
+
+  var loopRetVal = [];
+  for (var i = 0; i < arrArgs.length; i++) {
+    loopRetVal.push(arrArgZero.filter(function (element) {
+      var filterArgs = element;
+      console.log(filterArgs);
+      if (filterArgs !== arrArgs[i]) { // need non-matches
+        console.log("Line 28, true for " + arrArgs[i] + "\n");
+        return 1; // coerces true
+      } else {
+        console.log("Line 31, false " + arrArgs[i] + "\n");
+        return NaN; // coerces false
+      }
+    }));
+    console.log(loopRetVal + " = loopRetVal at line 35\n");
+  }
+  return loopRetVal;
 }
 
 console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
