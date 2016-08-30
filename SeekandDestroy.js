@@ -11,30 +11,13 @@ Here are some helpful links:
     */
 "use strict";
 function destroyer(arr) {
-  // Remove all the values
+  // get all the values
   var arrArgZero = arguments[0];
   var arrAll = [...arguments];
-  var arrArgs = arrAll.slice(1);
-  console.log(arrArgZero + "    " + arrAll + "    " + Array.isArray(arrArgs) +" line 18\n");
+  var arrArgsSet = new Set(arrAll.slice(1));
 
-  console.log(arrArgs + " line 20\n");
-
-  var loopRetVal = [];
-  for (var i = 0; i < arrArgs.length; i++) {
-    loopRetVal.push(arrArgZero.filter(function (element) {
-      var filterArgs = element;
-      console.log(filterArgs);
-      if (filterArgs !== arrArgs[i]) { // need non-matches
-        console.log("Line 28, true for " + arrArgs[i] + "\n");
-        return 1; // coerces true
-      } else {
-        console.log("Line 31, false " + arrArgs[i] + "\n");
-        return NaN; // coerces false
-      }
-    }));
-    console.log(loopRetVal + " = loopRetVal at line 35\n");
-  }
-  return loopRetVal;
+  let retVal = [...new Set([...arrArgZero].filter(e => !arrArgsSet.has(e)))];
+  return retVal;
 }
 
 console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
