@@ -15,9 +15,11 @@ function destroyer(arr) {
   var arrArgZero = arguments[0];
   var arrAll = [...arguments];
   var arrArgsSet = new Set(arrAll.slice(1));
+  var arrArgs = arrAll.slice(1);
 
-  let retVal = [...new Set([...arrArgZero].filter(e => !arrArgsSet.has(e)))];
-  return retVal;
+  // let retVal1 = [...new Set([...arrArgZero].filter(e => !arrArgsSet.has(e)))];
+  let retVal2 = arrArgZero.filter(d => arrArgs.indexOf(d) < 0);
+  return retVal2;
 }
 
 console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
